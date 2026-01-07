@@ -8,9 +8,17 @@ function App() {
   const[Fullname,setFullname]= useState("")
   const[show,setShow]= useState("")
   const[error,seterror]= useState("")
-  const nameRegex = /^[A-Za-z]+$/;
+  
   const ShowFullName=(e)=>{
     e.preventDefault();
+    if (!firstname.trim() || !lastname.trim()) {
+      setFullname(""); 
+      return;
+    }
+     if (!firstname.trim() || !lastname.trim()) {
+      setFullname("");   // ensure nothing is rendered
+      return;
+    }
     if (!firstname.trim()) {
       seterror("Please fill out this field.");
       return;
@@ -21,15 +29,7 @@ function App() {
       return;
     }
 
-     if (!nameRegex.test(firstname)) {
-      seterror("First name should not contain numbers or special characters");
-      return;
-    }
-
-    if (!nameRegex.test(lastname)) {
-      seterror("Last name should not contain numbers or special characters");
-      return;
-    }
+    
 
     seterror("");
     setFullname(`${firstname} ${lastname}`)
