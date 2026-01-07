@@ -9,7 +9,8 @@ function App() {
   const[show,setShow]= useState("")
   const[error,seterror]= useState("")
   const nameRegex = /^[A-Za-z]+$/;
-  const ShowFullName=()=>{
+  const ShowFullName=(e)=>{
+    e.preventDefault();
     if (!firstname.trim()) {
       seterror("Please fill out this field.");
       return;
@@ -38,14 +39,15 @@ function App() {
   return (
     <div className="App">
     <h3>Full Name Display</h3>
-   <form>
+   <form onSubmit={ShowFullName}>
   <label for="fname">First name:</label><br></br>
   <input type="text" id="fname" name="fname" value={firstname} onChange={(e)=>setfirstname(e.target.value)} /><br></br>
   <label for="lname">Last name:</label><br></br>
   <input type="text" id="lname" name="lname" value={lastname} onChange={(e)=>setlastname(e.target.value)} /><br></br>
+    <button type='submit'>Submit</button>
+
   
 </form> 
-    <button onClick={ShowFullName} type='submit'>Submit</button>
     {error && <p style={{ color: "red" }}>{error}</p>}
      {show && <h5>Full Name: {Fullname}</h5>}
 
