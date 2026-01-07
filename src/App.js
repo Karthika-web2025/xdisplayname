@@ -45,7 +45,7 @@ function App() {
   <input type="text" id="lname" name="lname" value={lastname} onChange={(e)=>setlastname(e.target.value)} /><br></br>
   
 </form> 
-    <button onClick={ShowFullName}>Submit</button>
+    <button onClick={ShowFullName} type='submit'>Submit</button>
     {error && <p style={{ color: "red" }}>{error}</p>}
      {show && <h5>Full Name: {Fullname}</h5>}
 
