@@ -6,8 +6,7 @@ function App() {
   const[firstname,setfirstname]= useState("")
   const[lastname,setlastname]= useState("")
   const[Fullname,setFullname]= useState("")
-  const[show,setShow]= useState("")
-  const[error,seterror]= useState("")
+
   
   const ShowFullName=(e)=>{
     e.preventDefault();
@@ -16,24 +15,11 @@ function App() {
       return;
     }
      if (!firstname.trim() || !lastname.trim()) {
-      setFullname("");   // ensure nothing is rendered
+      setFullname("");   
       return;
     }
-    if (!firstname.trim()) {
-      seterror("Please fill out this field.");
-      return;
-    }
-
-    if (!lastname.trim()) {
-      seterror("Please fill out this field.");
-      return;
-    }
-
-    
-
-    seterror("");
-    setFullname(`${firstname} ${lastname}`)
-    setShow(true)
+     setFullname(`${firstname} ${lastname}`)
+  
   }
 
   return (
@@ -48,8 +34,7 @@ function App() {
 
   
 </form> 
-    {error && <p style={{ color: "red" }}>{error}</p>}
-     {show && <h5>Full Name: {Fullname}</h5>}
+     {Fullname && <h5>Full Name: {Fullname}</h5>}
 
     </div>
   );
